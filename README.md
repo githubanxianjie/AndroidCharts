@@ -2,13 +2,32 @@
 
 A simple Android charts library.
 
-##Building
-####Building From Eclipse
+## Known Uses in
+
+* [Pomotodo](https://play.google.com/store/apps/details?id=com.pomotodo)
+
+## Including in Your Project
+
+#### Eclipse
+
 * Import `/AndroidCharts` folder.
 * Move `/java` folder to `/src` folder.
 * `mkdir libs`, copy `android-support-v4.jar` to `/libs`.
 
+#### Gradle
+
+```groovy
+repositories {
+    jcenter()
+}
+```
+
+```groovy
+compile 'im.dacer:AndroidCharts:1.0.3'
+```
+
 ## Usage
+
 #### Line Chart
 
 ![Line Chart](https://raw.github.com/dacer/AndroidCharts/master/pic/line.png)
@@ -18,7 +37,7 @@ A simple Android charts library.
         <view
             android:layout_width="wrap_content"
             android:layout_height="300dp"
-            class="com.dacer.androidcharts.LineView"
+            class="im.dacer.androidcharts.LineView"
             android:id="@+id/line_view" />
 </HorizontalScrollView>
 ```
@@ -28,7 +47,8 @@ LineView lineView = (LineView)findViewById(R.id.line_view);
 lineView.setDrawDotLine(false); //optional
 lineView.setShowPopup(LineView.SHOW_POPUPS_MAXMIN_ONLY); //optional
 LineView.setBottomTextList(strList);
-LineView.setDataList(dataLists);
+lineView.setColorArray(new int[]{Color.BLACK,Color.GREEN,Color.GRAY,Color.CYAN});
+lineView.setDataList(dataLists); //or lineView.setFloatDataList(floatDataLists)
 ```
 
 #### Bar Chart
@@ -40,7 +60,7 @@ LineView.setDataList(dataLists);
         <view
             android:layout_width="wrap_content"
             android:layout_height="300dp"
-            class="com.dacer.androidcharts.BarView"
+            class="im.dacer.androidcharts.BarView"
             android:id="@+id/bar_view" />
 </HorizontalScrollView>
 ```
@@ -59,7 +79,7 @@ barView.setDataList(dataList,100);
 <view
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    class="com.dacer.androidcharts.ClockPieView"
+    class="im.dacer.androidcharts.ClockPieView"
     android:id="@+id/clock_pie_view" />
 ```
 
@@ -77,7 +97,7 @@ pieView.setDate(pieHelperArrayList);
 <view
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    class="com.dacer.androidcharts.PieView"
+    class="im.dacer.androidcharts.PieView"
     android:id="@+id/pie_view" />
 ```
 
